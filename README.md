@@ -31,17 +31,17 @@ mvn test            # 运行历史向量测试(JUnit 5)
 mvn package         # 打包 target/enigma.jar
 ```
 
-浏览器打开 http://localhost:8080
+浏览器打开 <http://localhost:8080>
 
 ## 验证
 
 | 配置 | 操作 | 期望 |
 |---|---|---|
 | I II III / 环AAA / 位置AAA / B / 无插线 | 敲 5 个 A | `BDZGO` |
-| 同上,环 BBB | 敲 5 个 A | `EWTYX` |
-| I IV III / 环PZH / 插线10对 / 位置QWE | 敲 RTZ | `EWG`(维基百科 Aachen 战报)|
+| I II III / 环BBB / 位置AAA / B / 无插线 | 敲 5 个 A | `EWTYX` |
+| I IV III / 环PZH / 插线10对 / 位置QWE | 敲 RTZ | `EWG`(维基百科 Aachen 战报密钥头)|
 
-全部向量可在页面【操作手册 → 检验向量】一键装载复现;CI 每次构建自动跑同套测试。
+这些期望值不是本项目自定,而是密码学史上的公开检验向量:能在任意恩尼格玛实现上逐字节复现,即为"与实物一致"的硬证据。页面【操作手册 → 检验向量】可一键装载配置亲手复现;CI 每次构建自动跑同套测试。
 
 ## 项目结构
 
