@@ -13,3 +13,4 @@ Thumbs.db
 # 运行日志
 *.log
 nohup.out
+target/
