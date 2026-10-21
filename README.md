@@ -1,7 +1,13 @@
 # Enigma I 恩尼格玛模拟器
 
+[![CI](https://github.com/Louvane/enigma/actions/workflows/ci.yml/badge.svg)](https://github.com/Louvane/enigma/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![JDK](https://img.shields.io/badge/JDK-17+-blue.svg)](https://adoptium.net)
+
 恩尼格玛 I 型的忠实模拟:Java 物理组件建模 + Vue 3 可视化操作台 + 百科级背景文档。
 经四组公开历史向量逐字节验证,与 1941 年德军制式机行为完全一致。
+
+![机器视图](docs/screenshot-machine.png)
 
 ## 特性
 
@@ -9,7 +15,7 @@
 - **真实机械行为**:先步进后通电、缺口进位、**双步进异常**(ADU→ADV→AEW→BFX)
 - **完整报文规程**:日钥装机 → 报文密钥(QWE/RTZ/EWG)→ 发报 → 收方镜像解密,全流程可在页面复现
 - **可视化**:转子鼓转动、灯板亮灯、12 站信号路径、插线板连线
-- **自研流程图引擎**(EnigmaFlow):Canvas 精确测宽 + 等距布局,三视图四图统一风格
+- **自研流程图引擎**(EnigmaFlow):Canvas 精确测宽 + 等距布局,三视图统一风格
 - **四套主题**:胡桃木黄铜 / 仪表绿 / 潜航红铜 / 档案纸墨,一键切换记忆
 - **内置文档**:三分钟上手操作手册 + 百科级背景与历史(破译史时间线、人物志)
 
@@ -28,7 +34,7 @@ mvn package         # 打包 target/enigma.jar
 
 浏览器打开 http://localhost:8080
 
-## 验证(自检向量)
+## 验证
 
 | 配置 | 操作 | 期望 |
 |---|---|---|
@@ -36,31 +42,16 @@ mvn package         # 打包 target/enigma.jar
 | 同上,环 BBB | 敲 5 个 A | `EWTYX` |
 | I IV III / 环PZH / 插线10对 / 位置QWE | 敲 RTZ | `EWG`(维基百科 Aachen 战报)|
 
-全部向量可在页面【操作手册 → 检验向量】一键装载复现。
+全部向量可在页面【操作手册 → 检验向量】一键装载复现;CI 每次构建自动跑同套测试。
 
-## 目录结构
+## 项目结构
 
 ```
-pom.xml                  Maven(运行时零第三方依赖,仅测试期 JUnit 5)
-src/main/java/com/enigma/
-  core/                  纯机械层(不依赖 IO,可独立复用)
-    Rotor / RotorType      转子(共轭置换 S = P⁻¹·W·P)
-    Reflector / ReflectorType  反射器(自逆 + 无固定点)
-    Plugboard              插线板
-    EnigmaMachine          整机(信号路径 + 双步进)
-  server/                HTTP 层
-    EnigmaServer           静态资源 + API(防路径穿越)
-    MachineConfig          配置模型
-src/test/java/           JUnit 5 历史向量测试
-.github/workflows/ci.yml GitHub Actions CI
-web/                     前端
-  index.html             设计令牌 + 四主题
-  js/app.js              Vue 根应用(唯一状态源)
-  js/components.js       物理组件(转子鼓/灯板/键盘/插线板/路径)
-  js/flowchart.js        EnigmaFlow 流程图引擎
-  js/views-manual.js     操作手册视图
-  js/views-history.js    背景与历史视图
-  lib/vue.global.prod.js Vue 3(本地化,离线可用)
+pom.xml              Maven:运行时零第三方依赖,仅测试期 JUnit 5
+src/main/java/       core(纯机械层,不依赖 IO)+ server(HTTP 层)
+src/test/java/       JUnit 5 历史向量测试
+web/                 Vue 3 前端(零构建,库已本地化)
+docs/                截图
 ```
 
 ## 技术要点
@@ -72,4 +63,4 @@ web/                     前端
 
 ## 许可
 
-仅供学习密码学历史与教学演示——如恩尼格玛本身所示,它**不是**安全加密方案。
+[MIT](LICENSE) — 仅供学习密码学历史与教学演示。如恩尼格玛本身所示,它**不是**安全加密方案。
