@@ -31,7 +31,7 @@ mvn test            # 运行历史向量测试(JUnit 5)
 mvn package         # 打包 target/enigma.jar
 ```
 
-浏览器打开 <http://localhost:8080>
+浏览器打开 http://localhost:8080
 
 ## 验证
 
