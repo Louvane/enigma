@@ -1,3 +1,5 @@
+<div align="center">
+
 # Enigma I 恩尼格玛模拟器
 
 [![CI](https://github.com/Louvane/enigma/actions/workflows/ci.yml/badge.svg)](https://github.com/Louvane/enigma/actions/workflows/ci.yml)
@@ -5,7 +7,10 @@
 [![JDK](https://img.shields.io/badge/JDK-17+-blue.svg)](https://adoptium.net)
 
 恩尼格玛 I 型的忠实模拟:Java 物理组件建模 + Vue 3 可视化操作台 + 百科级背景文档。
+
 经四组公开历史向量逐字节验证,与 1941 年德军制式机行为完全一致。
+
+</div>
 
 ![机器视图](docs/screenshot-machine.png)
 
