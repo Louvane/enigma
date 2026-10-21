@@ -1,11 +1,11 @@
 package com.enigma.server;
 
-import com.enigma.EnigmaMachine;
-import com.enigma.Plugboard;
-import com.enigma.Reflector;
-import com.enigma.ReflectorType;
-import com.enigma.Rotor;
-import com.enigma.RotorType;
+import com.enigma.core.EnigmaMachine;
+import com.enigma.core.Plugboard;
+import com.enigma.core.Reflector;
+import com.enigma.core.ReflectorType;
+import com.enigma.core.Rotor;
+import com.enigma.core.RotorType;
 
 /**
  * 恩尼格玛整机配置:对应操作员每日密钥单(转子序/初始位置/环设置/反射器/插线)

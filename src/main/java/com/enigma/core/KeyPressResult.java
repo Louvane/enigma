@@ -1,4 +1,4 @@
-package com.enigma;
+package com.enigma.core;
 
 import java.util.List;
 

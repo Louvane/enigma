@@ -1,4 +1,4 @@
-package com.enigma;
+package com.enigma.core;
 
 /**
  * 信号路径追踪点:记录信号经过某个物理组件后的字母

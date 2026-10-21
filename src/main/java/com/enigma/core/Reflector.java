@@ -1,4 +1,4 @@
-package com.enigma;
+package com.enigma.core;
 
 /**
  * 恩尼格玛反射器

@@ -1,10 +1,13 @@
 package com.enigma.server;
 
-import com.enigma.EnigmaMachine;
-import com.enigma.KeyPressResult;
-import com.enigma.Plugboard;
-import com.enigma.ReflectorType;
-import com.enigma.RotorType;
+import com.enigma.core.EnigmaMachine;
+import com.enigma.core.Plugboard;
+import com.enigma.core.Reflector;
+import com.enigma.core.ReflectorType;
+import com.enigma.core.Rotor;
+import com.enigma.core.KeyPressResult;
+import com.enigma.core.RotorType;
+
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 

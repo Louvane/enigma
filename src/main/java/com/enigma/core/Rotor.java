@@ -1,4 +1,4 @@
-package com.enigma;
+package com.enigma.core;
 
 /**
  * 恩尼格玛转子——机器的灵魂部件

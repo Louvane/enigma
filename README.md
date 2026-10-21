@@ -15,11 +15,15 @@
 
 ## 快速开始
 
-要求:JDK 17+
+要求:JDK 17+、Maven 3.6+
 
 ```bash
-./run.sh            # 编译 + 自检 + 启动,默认 8080
+./run.sh            # 构建 + 测试 + 启动,默认 8080
 ./run.sh 9090       # 指定端口
+
+# 或标准 Maven 流程
+mvn test            # 运行历史向量测试(JUnit 5)
+mvn package         # 打包 target/enigma.jar
 ```
 
 浏览器打开 http://localhost:8080
@@ -37,13 +41,18 @@
 ## 目录结构
 
 ```
-src/com/enigma/          Java 后端
-  Rotor / RotorType      转子(共轭置换 S = P⁻¹·W·P)
-  Reflector / ReflectorType  反射器(自逆 + 无固定点)
-  Plugboard              插线板
-  EnigmaMachine          整机(信号路径 + 双步进)
-  EnigmaSelfTest         历史向量自检
-  server/EnigmaServer    HTTP 服务(静态资源 + API)
+pom.xml                  Maven(运行时零第三方依赖,仅测试期 JUnit 5)
+src/main/java/com/enigma/
+  core/                  纯机械层(不依赖 IO,可独立复用)
+    Rotor / RotorType      转子(共轭置换 S = P⁻¹·W·P)
+    Reflector / ReflectorType  反射器(自逆 + 无固定点)
+    Plugboard              插线板
+    EnigmaMachine          整机(信号路径 + 双步进)
+  server/                HTTP 层
+    EnigmaServer           静态资源 + API(防路径穿越)
+    MachineConfig          配置模型
+src/test/java/           JUnit 5 历史向量测试
+.github/workflows/ci.yml GitHub Actions CI
 web/                     前端
   index.html             设计令牌 + 四主题
   js/app.js              Vue 根应用(唯一状态源)

@@ -1,4 +1,4 @@
-package com.enigma;
+package com.enigma.core;
 
 /**
  * 恩尼格玛 I 型五个历史转子型号
